@@ -1,0 +1,76 @@
+public class LEDBoardRunner
+{
+    public static void main(String[] args)
+    {
+        // Create a new 6x6 LED board
+        int[][] board = new int[6][6];
+        LEDBoardControl.horizontalStripes(board);
+        LEDBoardControl.printBoard(board);
+        
+        LEDBoardControl.verticalStripes(board);
+        LEDBoardControl.printBoard(board);
+    }
+}
+
+//______________________________________________________
+public class LEDBoardControl
+{
+    // Creates alternating horizontal stripes of 0s and 1s 
+    // on the incoming 2D array board
+    public static void horizontalStripes(int[][] board)
+    {
+        // Complete this method
+        for (int row = 0; row < board.length; row++)
+        {
+            for (int col = 0; col < board[row].length; col++)
+            {
+                if (row % 2 == 0)
+                {
+                    board[row][col] = 1;
+                }
+                else
+                {
+                    board[row][col] = 0;
+                }
+            }
+        }
+        
+    }
+
+    // Creates alternating vertical stripes of 0s and 1s 
+    // on the incoming 2D array board
+    public static void verticalStripes(int[][] board)
+    {
+        // Complete this method
+        for (int row = 0; row < board.length; row++)
+        {
+            for (int col = 0; col < board[row].length; col++)
+            {
+                if(col % 2 == 0)
+                {
+                    board[row][col] = 1;
+                }
+                else
+                {
+                    board[row][col] = 0;
+                }
+            }
+        }
+        
+        
+        
+    }
+
+    public static void printBoard(int[][] board)
+    {
+        for (int[] row : board)
+        {
+            for (int led : row)
+            {
+                System.out.print(led + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+}
